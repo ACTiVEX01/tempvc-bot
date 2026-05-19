@@ -1,0 +1,31 @@
+<%- include('layout', { user: user, body: `
+<article>
+    <h2>Server Dashboard</h2>
+    <p>Select a server to manage its TempVC configuration.</p>
+    <div id="guild-list">
+        <p>Loading servers...</p>
+    </div>
+</article>
+
+<script>
+    async function loadGuilds() {
+        const res = await fetch('/api/guilds');
+        const guilds = await res.json();
+        const container = document.getElementById('guild-list');
+        
+        if (guilds.length === 0) {
+            container.innerHTML = '<p>No mutual servers found where you are an Administrator.</p>';
+            return;
+        }
+
+        container.innerHTML = guilds.map(g => `
+            <article style="display: flex; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: 0.5rem;">
+                <img src="https://cdn.discordapp.com/icons/${g.id}/${g.icon}.png" style="border-radius: 50%; width: 50px; height: 50px;">
+                <div style="flex-grow: 1;"><strong>${g.name}</strong></div>
+                <a href="/dashboard?guildId=${g.id}" role="button">Manage</a>
+            </article>
+        `).join('');
+    }
+    loadGuilds();
+</script>
+` }) %>

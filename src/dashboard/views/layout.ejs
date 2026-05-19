@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TempVC Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        :root { --primary: #5865F2; }
+        body { background-color: #111118; color: #fff; }
+        article { background-color: #1e1e2e; border: 1px solid #313244; }
+        nav { background-color: #1e1e2e; border-bottom: 1px solid #313244; }
+        a { color: #5865F2; }
+        .container { max-width: 900px; margin: auto; padding: 1rem; }
+        .profile-img { border-radius: 50%; width: 40px; height: 40px; vertical-align: middle; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul><li><strong>🎙️ TempVC</strong></li></ul>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <% if (user) { %>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logs">Logs</a></li>
+                <li>
+                    <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>.png" class="profile-img">
+                    <%= user.username %>
+                </li>
+                <li><a href="/auth/logout" class="secondary">Logout</a></li>
+            <% } else { %>
+                <li><a href="/auth/login" role="button" class="contrast">Login</a></li>
+            <% } %>
+        </ul>
+    </nav>
+    <main class="container">
+        <%- body %>
+    </main>
+</body>
+</html>

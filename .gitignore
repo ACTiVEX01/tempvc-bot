@@ -1,0 +1,27 @@
+node_modules/
+.env
+*.log
+.DS_Store
+dist/
+cache/
+# Bot Configuration
+DISCORD_TOKEN=MTUwNjMyNjkwOTIxNzI4MDEwMQ.GAUamv.p22Fwx6P7SVBB1ApUH0HQcNBIenprCthFcNHfY
+CLIENT_ID=1506326909217280101
+CLIENT_SECRET=auuaK7YkRkjWpaw2EePTagxlT7E0hreD
+
+# Database
+MONGODB_URI=mongodb+srv://officialbeyondsense_db_user:.html5.css3.js10@cluster0.cxc16nr.mongodb.net/?appName=Cluster0
+
+# Dashboard
+DASHBOARD_URL=http://localhost:3000
+DASHBOARD_PORT=3000
+SESSION_SECRET=xK9pL3mN7oQ2rT8vW1yZ4aF6bD5cE0g
+
+# Bot Settings
+DEFAULT_DELETE_DELAY=30
+DEFAULT_MAX_CHANNELS=3
+DEFAULT_COOLDOWN=30000
+ACTIVITY_RENAME_INTERVAL=60000
+
+# Optional
+LOG_WEBHOOK_URL=
